@@ -1,0 +1,29 @@
+import pickle
+import gzip
+
+# Compress movie_dict.pkl
+try:
+    with open('movie_dict.pkl', 'rb') as f_in:
+        movie_data = pickle.load(f_in)
+
+    with gzip.open('movie_dict_compressed.pkl.gz', 'wb') as f_out:
+        pickle.dump(movie_data, f_out)
+
+    print("✅ movie_dict.pkl compressed successfully.")
+
+except Exception as e:
+    print(f"❌ Error compressing movie_dict.pkl: {e}")
+
+
+# Compress similarity.pkl
+try:
+    with open('similarity.pkl', 'rb') as f_in:
+        similarity_data = pickle.load(f_in)
+
+    with gzip.open('similarity_compressed.pkl.gz', 'wb') as f_out:
+        pickle.dump(similarity_data, f_out)
+
+    print("✅ similarity.pkl compressed successfully.")
+
+except Exception as e:
+    print(f"❌ Error compressing similarity.pkl: {e}")
